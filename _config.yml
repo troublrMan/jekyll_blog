@@ -1,1 +1,6 @@
-baseurl: /jekyll_demo
+permalink: /:title
+
+title: Carlen
+url: http://www.carlen.site
+feed: /atom.xml
+author_info: <a href="http://carlen.site/">Carlen</a>
