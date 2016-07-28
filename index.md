@@ -6,6 +6,7 @@ layout: default
   <div class="index-wrapper">
     <div class="aside">
       <div class="info-card">
+        <a class="about" href="/about"><img src="./images/avatar.jpg" width="128"/></a>
         <h1>Carlen</h1>
         <a href="" target="_blank"><img src="http://www.weibo.com/favicon.ico" alt="" width="25"/></a>
         <a href="" target="_blank"><img src="http://www.douban.com/favicon.ico" alt="" width="22"/></a>

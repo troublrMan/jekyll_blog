@@ -177,17 +177,29 @@ a.external:hover {
 }
 .index-wrapper .info-card {
   position: absolute;
-  margin-top: 70%;
+  margin-top: 50%;
   text-align: center;
   width: 100%;
 }
 @media screen and (max-width: 767px) {
   .index-wrapper .info-card {
-    margin-top: 70px;
+    margin-top: 50px;
   }
 }
+
+.about {
+  margin-bottom: 30px !important;
+  display: inline-block;
+}
+
+.about img {
+  border-radius: 50%;
+  -moz-border-radius: 50%; /* 老的 Firefox */
+  border: 3px solid rgba(255,255,255,0.5);
+}
+
 .index-wrapper .info-card h1 {
-  font-size: 40px;
+  font-size: 24px;
   color: #fff;
   margin-bottom: 20px;
   text-shadow: 0 0 80px rgba(255,255,255,0.5);
