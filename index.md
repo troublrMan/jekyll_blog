@@ -8,9 +8,9 @@ layout: default
       <div class="info-card">
         <a class="about" href="/about"><img src="./images/avatar.jpg" width="128"/></a>
         <h1>Carlen</h1>
-        <a href="https://github.com/chenpeng1102" target="_blank"><img src="https://github.com/favicon.ico" alt="" width="25"/></a>
-        <a href="https://www.zhihu.com/people/chen-peng-45-69" target="_blank"><img src="https://www.zhihu.com/favicon.ico" alt="" width="22"/></a>
-        <a href="https://www.instagram.com/carlencp/" target="_blank"><img src="http://d36xtkk24g8jdx.cloudfront.net/bluebar/00c6602/images/ico/favicon.ico" alt="" width="22"/></a>
+        <a href="https://www.instagram.com/carlencp/" target="_blank"><img src="./images/instagram_favicon.ico" alt="" width="22"/></a>
+        <a href="https://github.com/chenpeng1102" target="_blank"><img src="./images/github_favicon.ico" alt="" width="22"/></a>
+        <a href="https://www.zhihu.com/people/chen-peng-45-69" target="_blank"><img src="./images/zhihu_favicon.ico" alt="" width="22"/></a>
       </div>
       <div id="particles-js"></div>
     </div>

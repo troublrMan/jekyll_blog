@@ -2,11 +2,7 @@ $(function() {
     $('pre').addClass('prettyprint linenums'); //添加Google code Hight需要的class
 
     window.disqus_shortname = 'http-www-carlen-site'; // required: replace example with your forum shortname
-    $('#disqus_container .comment').on('click',function(){
-        $(this).html('加载中...');
-        var that = this;
-        $.getScript('http://' + disqus_shortname + '.disqus.com/embed.js',function(){$(that).remove()});
-    });
+    $.getScript('http://' + disqus_shortname + '.disqus.com/embed.js');
 
     $('.entry a').each(function(index,element){
         var href = $(this).attr('href');
@@ -24,8 +20,4 @@ $(function() {
     $.getScript('/js/prettify/prettify.js',function(){
         prettyPrint();
     });
-
-    if(/\#comment/.test(location.hash)){
-        $('#disqus_container .comment').trigger('click');
-    }
-})
+});
