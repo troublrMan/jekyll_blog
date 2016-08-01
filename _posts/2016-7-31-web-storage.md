@@ -24,21 +24,24 @@ category: blog
 - 本地读取文件的方式
 
 ## Cookie
-网页中的Cookie使用主要有两种 document.cookie 以及 request.Cookie。request.Cookie 主要应用场景是请求服务器时携带sessionId之类的信息，用于保持会话信息，通过HTTP Response Headers中的Set-Cookie Header和HTTP Request Headers中的Cookie Header设置或获取。我们这里主要要谈 document.cookie，这个 cookie 主要用于存储对应域名下的用户信息，提及一下httpOnly属性，用来设置cookie是否能通过 js 去访问。默认情况下，cookie不会带httpOnly选项(即为空)，所以默认情况下，客户端是可以通过js代码去访问（包括读取、修改、删除等）这个cookie的。当cookie带httpOnly选项时，客户端则无法通过js代码去访问（包括读取、修改、删除等）这个cookie，在客户端是不能通过js代码去设置一个httpOnly类型的cookie的，这种类型的cookie只能通过服务端来设置。
+Cookie 同一个“对象”主要有三种形态引用（但不是所有的cookie都能引用到的） document.cookie、request.Cookie、response.Cookies。 简单说一下cookie的产生和使用。   
+&emsp;&emsp;当请求一个网站时，如果该网站服务端有写 cookie 的机制，也就是设置了 response.Cookies（这个里面可以设置httpOnly属性），通过HTTP的响应头发送到客户端，浏览器接收后会将 cookie 存储到对应域名下。  
+&emsp;&emsp;浏览器存储了cookie，我们使用客户端js 的 document.cookie 操作 cookie，能否访问到这个 cookie 还不一定哦，提及一下httpOnly属性，用来设置cookie是否能通过 js 去访问。默认情况下，cookie不会带httpOnly选项(即为空)，所以默认情况下，客户端是可以通过js代码去访问（包括读取、修改、删除等）这个cookie的。当cookie带httpOnly选项时，客户端则无法通过js代码去访问（包括读取、修改、删除等）这个cookie，在客户端是不能通过js代码去设置一个httpOnly类型的cookie的，这种类型的cookie只能通过服务端来设置。  
+&emsp;&emsp;这时候当再次请求这个网站域名下的页面时，浏览器会将该域下的 cookie 携带在 request.Cookie 中，发送给服务端，典型的应用是请求服务器时携带sessionId，保持会话信息。  
 
-#### document.cookie的限制  
+#### cookie的限制  
 - 大多数浏览器支持最大为 4096 字节的 Cookie。  
 - 浏览器还限制站点可以在用户计算机上存储的 Cookie 的数量。大多数浏览器只允许每个站点存储 20 个Cookie；如果试图存储更多 Cookie，则最旧的 Cookie 便会被丢弃。  
 - 有些浏览器还会对它们将接受的来自所有站点的 Cookie 总数作出绝对限制，通常为 300 个。  
 - Cookie默认情况都会随着Http请求发送到后台服务器，但并不是所有请求都需要Cookie的，比如：js、css、图片等请求则不需要Cookie。  
 
-#### document.cookie 读取
+#### js中cookie 读取
 
 ```
 var cookies = document.cookie;   //取到对应域名下面所有的cookie信息，是key=value; 形式的字符串
 ```
 
-#### 写或修改 document.cookie
+#### js 写或修改 cookie
 
 ```
 document.cookie = "userId=828";   //这条记录会追加到 cookies 中
@@ -46,7 +49,7 @@ document.cookie = "userId=828";   //这条记录会追加到 cookies 中
 document.cookie = "userId=828; userName=hulk";
 ```
 
-#### 删除 document.cookie 的记录
+#### js 删除 cookie 的记录
 
 ```
 //只要将需要删除的cookie重赋值，它的expires 选项设置为一个过去的时间点就行了
